@@ -138,8 +138,8 @@ const MainChatBox = ({
     <div className="w-full bg-gray-50 border border-gray-100 rounded-lg">
       {conversationId ? (
         <>
-          <div className="flex flex-col gap-5 justify-between w-full h-screen">
-            <div className="flex flex-row rounded-tl-xl rounded-tr-xl justify-between w-full items-center md:px-5 py-4 bg-white">
+          <div className="flex flex-col gap-5 justify-between w-full h-[100dvh]">
+            <div className="flex flex-row flex-shrink-0 rounded-tl-xl rounded-tr-xl justify-between w-full items-center md:px-5 py-4 bg-white">
               <div className="flex flex-row gap-4 items-center">
                 <Image
                   src={eachUser.image}
@@ -190,7 +190,7 @@ const MainChatBox = ({
               </div>
             </div>
 
-            <div className="h-full flex flex-col px-1 md:px-5 w-full overflow-y-auto no-scrollbar">
+            <div className="h-full flex flex-col flex-1 px-1 md:px-5 w-full overflow-y-auto no-scrollbar">
               {messages.map((eachMessage, index) => {
                 const prevMessage = messages[index - 1];
                 const gap =
@@ -287,9 +287,10 @@ const MainChatBox = ({
                   </div>
                 );
               })}
+              <div ref={lastMessageRef} />
             </div>
 
-            <div className="md:p-5 p-1">
+            <div className="md:p-5 p-1 sticky bottom-0 flex flex-shrink-0">
               <Input
                 className="border border-gray-100 w-full"
                 variant="bordered"

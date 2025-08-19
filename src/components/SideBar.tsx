@@ -288,7 +288,7 @@ const SideBar = ({
                             <p className="text-[0.7rem] line-clamp-1">
                               {typingInfo.isTypying &&
                               eachUser.role === typingInfo.userName
-                                ? ` ${typingInfo.userName} is  ${typingInfo.userName}`
+                                ? ` ${typingInfo.userName} is  typing`
                                 : allConversation.find((eachConversation) => {
                                     return eachConversation.participants.includes(
                                       eachUser._id
@@ -301,9 +301,25 @@ const SideBar = ({
                         <div className="w-[25%] flex flex-row justify-end">
                           <div>
                             {onlineUser.includes(eachUser._id) ? (
-                              <GoDotFill className="text-green-600" size={18} />
+                              <div className="flex flex-col justify-center items-center">
+                                <GoDotFill
+                                  className="text-green-600"
+                                  size={18}
+                                />
+                                <p className="text-green-600 text-[0.7rem]">
+                                  online
+                                </p>
+                              </div>
                             ) : (
-                              <GoDotFill className="text-gray-600" size={18} />
+                              <div className="flex flex-col justify-center items-center">
+                                <GoDotFill
+                                  className="text-gray-600"
+                                  size={18}
+                                />
+                                <p className="text-[0.7rem] text-gray-600">
+                                  offline
+                                </p>
+                              </div>
                             )}
                           </div>
                         </div>

@@ -79,12 +79,32 @@ const Dashboard = () => {
   });
 
   useEffect(() => {
+    const getConverAftereachMess = async () => {
+      const Apilink = BackendURL();
+      const requestConversation = await fetch(
+        `${Apilink}/api/allconversation`,
+        {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          credentials: "include",
+        }
+      );
+      const responseConversation = await requestConversation.json();
+      if (responseConversation.success) {
+        setAllConversation(responseConversation.data);
+      }
+    };
+    getConverAftereachMess();
+  }, [messages]);
+
+  useEffect(() => {
     const getAllConveration = async () => {
       const Apilink = BackendURL();
       socket = io(`${Apilink}`);
       socket.emit("addUser", userDetails!._id);
       socket.on("getOnlineUsers", (onlineUser) => {
-        console.log("online users", onlineUser);
         setOnlineUser(onlineUser);
       });
       const requestConversation = await fetch(
@@ -264,7 +284,6 @@ const Dashboard = () => {
       });
     }
   };
-  console.log(onlineUser);
 
   const sendEditedmMessage = () => {
     const { conversationId, messageId, newText, senderId } = editText;
