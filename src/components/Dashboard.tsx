@@ -84,6 +84,7 @@ const Dashboard = () => {
       socket = io(`${Apilink}`);
       socket.emit("addUser", userDetails!._id);
       socket.on("getOnlineUsers", (onlineUser) => {
+        console.log("online users", onlineUser);
         setOnlineUser(onlineUser);
       });
       const requestConversation = await fetch(

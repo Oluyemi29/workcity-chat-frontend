@@ -12,7 +12,7 @@ import {
   ModalFooter,
   ModalHeader,
 } from "@heroui/react";
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { IoSend } from "react-icons/io5";
 import userAuth from "../store/userAuth";
 import moment from "moment";
@@ -116,6 +116,11 @@ const MainChatBox = ({
 }: MainChatBoxProps) => {
   const { userDetails } = userAuth();
   const [editable, setEditable] = useState(false);
+  const lastMessageRef = useRef<HTMLDivElement | null>(null);
+
+  useEffect(() => {
+    lastMessageRef.current?.scrollIntoView({ behavior: "smooth" });
+  }, [messages]);
   const formatDateTime = (Date: Date) => {
     if (moment(Date).isSame(moment(), "day")) {
       return moment(Date).format("hh:mm A");
@@ -200,6 +205,7 @@ const MainChatBox = ({
                         ? "justify-end"
                         : "justify-start"
                     } `}
+                    ref={index === messages.length - 1 ? lastMessageRef : null}
                   >
                     <div
                       className={`max-w-[70%] px-3 md:min-w-[20%] min-w-[15%] flex flex-col py-1 w-fit rounded-md ${
