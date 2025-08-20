@@ -290,8 +290,13 @@ const SideBar = ({
                               eachUser.role === typingInfo.userName
                                 ? ` ${typingInfo.userName} is  typing`
                                 : allConversation.find((eachConversation) => {
-                                    return eachConversation.participants.includes(
-                                      eachUser._id
+                                    return (
+                                      eachConversation.participants.includes(
+                                        eachUser._id
+                                      ) &&
+                                      eachConversation.participants.includes(
+                                        userDetails!._id
+                                      )
                                     );
                                   })?.lastMessage ||
                                   `No chat with ${eachUser.role} yet`}
