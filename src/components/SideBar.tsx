@@ -286,20 +286,33 @@ const SideBar = ({
                                 eachUser.username.slice(1)}
                             </h1>
                             <p className="text-[0.7rem] line-clamp-1">
-                              {typingInfo.isTypying &&
-                              eachUser.role === typingInfo.userName
-                                ? ` ${typingInfo.userName} is  typing`
-                                : allConversation.find((eachConversation) => {
-                                    return (
-                                      eachConversation.participants.includes(
-                                        eachUser._id
-                                      ) &&
-                                      eachConversation.participants.includes(
-                                        userDetails!._id
-                                      )
-                                    );
-                                  })?.lastMessage ||
-                                  `No chat with ${eachUser.role} yet`}
+                              {
+                                // typingInfo.isTypying &&
+                                // eachUser.role === typingInfo.userName
+                                allConversation.find(
+                                  (eachConvers) =>
+                                    eachConvers.participants.includes(
+                                      eachUser._id
+                                    ) &&
+                                    eachConvers.participants.includes(
+                                      userDetails!._id
+                                    )
+                                )?._id === typingInfo.conversationId &&
+                                typingInfo.isTypying &&
+                                typingInfo.userName === eachUser.role
+                                  ? ` ${typingInfo.userName} is  typing`
+                                  : allConversation.find((eachConversation) => {
+                                      return (
+                                        eachConversation.participants.includes(
+                                          eachUser._id
+                                        ) &&
+                                        eachConversation.participants.includes(
+                                          userDetails!._id
+                                        )
+                                      );
+                                    })?.lastMessage ||
+                                    `No chat with ${eachUser.role} yet`
+                              }
                             </p>
                           </div>
                         </div>
