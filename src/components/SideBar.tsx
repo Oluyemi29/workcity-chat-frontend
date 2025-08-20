@@ -287,7 +287,11 @@ const SideBar = ({
                             </h1>
                             <p className="text-[0.7rem] line-clamp-1">
                               {typingInfo.isTypying &&
-                              eachUser.role === typingInfo.userName
+                              eachUser.role === typingInfo.userName &&
+                              allConversation.find(
+                                (eachConvers) =>
+                                  eachConvers._id === typingInfo.conversationId
+                              )
                                 ? ` ${typingInfo.userName} is  typing`
                                 : allConversation.find((eachConversation) => {
                                     return (

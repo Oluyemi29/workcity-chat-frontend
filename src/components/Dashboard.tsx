@@ -193,11 +193,12 @@ const Dashboard = () => {
       }
     };
   }, [userToken, userDetails, conversationId]);
+
+
   const sendMessage = () => {
     if (!conversationId) {
       return;
     }
-
     if (text.trim() === "") {
       return;
     }
