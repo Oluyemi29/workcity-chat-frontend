@@ -138,7 +138,7 @@ const MainChatBox = ({
     <div className="w-full bg-gray-50 border border-gray-100 rounded-lg">
       {conversationId ? (
         <>
-          <div className="flex flex-col gap-5 justify-between w-full h-[100dvh]">
+          <div className="flex flex-col gap-5 md:px-3 px-2 justify-between w-full h-[100dvh]">
             <div className="flex flex-row flex-shrink-0 rounded-tl-xl rounded-tr-xl justify-between w-full items-center md:px-5 py-4 bg-white">
               <div className="flex flex-row gap-4 items-center">
                 <Image
