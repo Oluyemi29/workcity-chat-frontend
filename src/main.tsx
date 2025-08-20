@@ -4,11 +4,9 @@ import "./index.css";
 import App from "./App.tsx";
 import Provider from "./components/Provider.tsx";
 import { BrowserRouter } from "react-router-dom";
-import { HelmetProvider } from "react-helmet-async";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
-    <HelmetProvider>
       <BrowserRouter>
         <Provider>
           <div className="w-full">
@@ -16,6 +14,5 @@ createRoot(document.getElementById("root")!).render(
           </div>
         </Provider>
       </BrowserRouter>
-    </HelmetProvider>
   </StrictMode>
 );

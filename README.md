@@ -19,7 +19,6 @@ This is the frontend for **Real Time Chat App**, built using **React** and **Vit
 - **TypeScript** - Type safety for JavaScript
 - **React Router** - Page routing
 - **Tailwind CSS** - Styling
-- **React Helmet Async** - Page metadata (title, OG tags)
 
 ---
 

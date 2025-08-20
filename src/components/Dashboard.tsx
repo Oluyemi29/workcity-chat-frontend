@@ -5,7 +5,6 @@ import userAuth from "../store/userAuth";
 import { BackendURL } from "../hooks/apiLinks";
 import io, { Socket } from "socket.io-client";
 import type { DefaultEventsMap } from "@socket.io/component-emitter";
-import { Helmet } from "react-helmet-async";
 
 type allConversationProps = {
   _id: string;
@@ -317,15 +316,6 @@ const Dashboard = () => {
   };
 
   return (
-    <>
-      <Helmet>
-        <title>Dashboard | Chat App</title>
-        <meta name="description" content="Real Time Chat App" />
-        <meta
-          property="og:image"
-          content="https://i.pinimg.com/736x/df/f6/e5/dff6e5c2a345651ec3df5e04daf61d92.jpg"
-        />
-      </Helmet>
 
       <div className="flex flex-row gap-3 w-full p-3 bg-gray-50/75">
         <div
@@ -371,7 +361,6 @@ const Dashboard = () => {
           />
         </div>
       </div>
-    </>
   );
 };
 

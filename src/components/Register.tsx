@@ -4,7 +4,6 @@ import { BackendURL } from "../hooks/apiLinks";
 import { Link, useNavigate } from "react-router-dom";
 import { FaEye } from "react-icons/fa";
 import { IoEyeOff } from "react-icons/io5";
-import { Helmet } from "react-helmet-async";
 
 type FormDataType = {
   username: string;
@@ -101,15 +100,6 @@ const Register = () => {
     }
   };
   return (
-    <>
-      <Helmet>
-        <title>Register | Chat App</title>
-        <meta name="description" content="Real Time Chat App" />
-        <meta
-          property="og:image"
-          content="https://i.pinimg.com/736x/df/f6/e5/dff6e5c2a345651ec3df5e04daf61d92.jpg"
-        />
-      </Helmet>
       <div className="w-full flex justify-center md:mt-10 mt-20">
         <Card className="lg:w-2/6 md:w-3/6 w-full p-5 flex flex-col justify-center items-center">
           <form
@@ -197,7 +187,6 @@ const Register = () => {
           </p>
         </Card>
       </div>
-    </>
   );
 };
 
